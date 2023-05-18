@@ -1,0 +1,21 @@
+# Compiled Python files
+*.pyc
+
+# Virtual environment
+venv/
+
+# Jetson-Inference build files
+build/
+
+# Jetson-Inference output files
+output/
+
+# Jetson-Inference cached data
+data/
+
+# Twilio credentials file
+twilio_creds.txt
+
+# IDE files (optional, adjust as needed)
+.idea/
+.vscode/
