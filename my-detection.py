@@ -1,6 +1,8 @@
 import os
+import sys
 import jetson_inference
 import jetson_utils
+import send_mms
 
 net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.85)
 camera = jetson_utils.gstCamera(2592, 1944, "/dev/video0")
@@ -17,7 +19,7 @@ while display.IsOpen():
     detections = net.Detect(img, width, height)
 
     # check if any person detection is present
-    person_present = any(net.GetClassDesc(d.ClassID) == "dog" for d in detections)
+    person_present = any(net.GetClassDesc(d.ClassID) == "person" for d in detections)
 
     if person_present and not person_detected:
         print('person detected')
@@ -28,7 +30,13 @@ while display.IsOpen():
         image_path = os.path.join(file_path, image_name)
 
         # save the image when person is detected
-        jetson_utils.saveImageRGBA(image_path, img, width, height)
+        jetson_utils.saveImageRGBA(image_path, img)
+
+        # mms image
+        send_mms.send_image_mms()
+
+        # exit
+        sys.exit()
 
     elif not person_present and person_detected:
         print('person undetected')
