@@ -1,4 +1,4 @@
-Jetson-Inference Image Capture and Texting
+# Jetson-Inference Image Capture and Texting
 
 This project uses Jetson-Inference and Twilio to capture an image and text it to a desired phone number upon detecting a specific item.
 
