@@ -1,5 +1,15 @@
 from twilio.rest import Client
+import requests
 import os
+
+def get_ngrok_url():
+    ngrok_url = 'http://localhost:4040/api/tunnels'
+    response = requests.get(ngrok_url)
+    data = response.json()
+    forwarding_url = data['tunnels'][0]['public_url']
+    
+    return forwarding_url
+
 
 def create_twilio_client():
     account_sid = os.environ['TWILIO_ACCOUNT_SID']
@@ -8,7 +18,7 @@ def create_twilio_client():
 
 def send_image_mms():
     client = create_twilio_client()
-    image_url = 'https://cd85-50-109-244-47.ngrok-free.app/media/detection.jpg'
+    image_url = str(get_ngrok_url()) + '/media/detection.jpg'
 
     message = client.messages.create(
         from_='+18336934531',
@@ -16,7 +26,4 @@ def send_image_mms():
         to='+15034737870'
     )
 
-    print(message.sid)
-
-# call the send_image_mms function
-# send_image_mms()
+    # print(message.sid)

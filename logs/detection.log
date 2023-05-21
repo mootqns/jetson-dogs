@@ -1,0 +1,259 @@
+jetson.inference -- detectNet loading custom model '(null)'
+
+detectNet -- loading detection network model from:
+          -- model        networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+          -- input_blob   'Input'
+          -- output_blob  'NMS'
+          -- output_count 'NMS_1'
+          -- class_labels networks/SSD-Mobilenet-v2/ssd_coco_labels.txt
+          -- threshold    0.850000
+          -- batch_size   1
+
+[TRT]    TensorRT version 8.5.2
+[TRT]    loading NVIDIA plugins...
+[TRT]    Registered plugin creator - ::BatchedNMSDynamic_TRT version 1
+[TRT]    Registered plugin creator - ::BatchedNMS_TRT version 1
+[TRT]    Registered plugin creator - ::BatchTilePlugin_TRT version 1
+[TRT]    Registered plugin creator - ::Clip_TRT version 1
+[TRT]    Registered plugin creator - ::CoordConvAC version 1
+[TRT]    Registered plugin creator - ::CropAndResizeDynamic version 1
+[TRT]    Registered plugin creator - ::CropAndResize version 1
+[TRT]    Registered plugin creator - ::DecodeBbox3DPlugin version 1
+[TRT]    Registered plugin creator - ::DetectionLayer_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_Explicit_TF_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_Implicit_TF_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_ONNX_TRT version 1
+[TRT]    Registered plugin creator - ::EfficientNMS_TRT version 1
+[0;31m[TRT]    Could not register plugin creator -  ::FlattenConcat_TRT version 1
+[0m[TRT]    Registered plugin creator - ::GenerateDetection_TRT version 1
+[TRT]    Registered plugin creator - ::GridAnchor_TRT version 1
+[TRT]    Registered plugin creator - ::GridAnchorRect_TRT version 1
+[TRT]    Registered plugin creator - ::GroupNorm version 1
+[TRT]    Registered plugin creator - ::InstanceNormalization_TRT version 1
+[TRT]    Registered plugin creator - ::InstanceNormalization_TRT version 2
+[TRT]    Registered plugin creator - ::LayerNorm version 1
+[TRT]    Registered plugin creator - ::LReLU_TRT version 1
+[TRT]    Registered plugin creator - ::MultilevelCropAndResize_TRT version 1
+[TRT]    Registered plugin creator - ::MultilevelProposeROI_TRT version 1
+[TRT]    Registered plugin creator - ::MultiscaleDeformableAttnPlugin_TRT version 1
+[TRT]    Registered plugin creator - ::NMSDynamic_TRT version 1
+[TRT]    Registered plugin creator - ::NMS_TRT version 1
+[TRT]    Registered plugin creator - ::Normalize_TRT version 1
+[TRT]    Registered plugin creator - ::PillarScatterPlugin version 1
+[TRT]    Registered plugin creator - ::PriorBox_TRT version 1
+[TRT]    Registered plugin creator - ::ProposalDynamic version 1
+[TRT]    Registered plugin creator - ::ProposalLayer_TRT version 1
+[TRT]    Registered plugin creator - ::Proposal version 1
+[TRT]    Registered plugin creator - ::PyramidROIAlign_TRT version 1
+[TRT]    Registered plugin creator - ::Region_TRT version 1
+[TRT]    Registered plugin creator - ::Reorg_TRT version 1
+[TRT]    Registered plugin creator - ::ResizeNearest_TRT version 1
+[TRT]    Registered plugin creator - ::ROIAlign_TRT version 1
+[TRT]    Registered plugin creator - ::RPROI_TRT version 1
+[TRT]    Registered plugin creator - ::ScatterND version 1
+[TRT]    Registered plugin creator - ::SeqLen2Spatial version 1
+[TRT]    Registered plugin creator - ::SpecialSlice_TRT version 1
+[TRT]    Registered plugin creator - ::SplitGeLU version 1
+[TRT]    Registered plugin creator - ::Split version 1
+[TRT]    Registered plugin creator - ::VoxelGeneratorPlugin version 1
+[TRT]    detected model format - UFF  (extension '.uff')
+[TRT]    desired precision specified for GPU: FASTEST
+[0;33m[TRT]    requested fasted precision for device GPU without providing valid calibrator, disabling INT8
+[0m[TRT]    [MemUsageChange] Init CUDA: CPU +188, GPU +0, now: CPU 224, GPU 6816 (MiB)
+[TRT]    Trying to load shared library libnvinfer_builder_resource.so.8.5.2
+[TRT]    Loaded shared library libnvinfer_builder_resource.so.8.5.2
+[TRT]    [MemUsageChange] Init builder kernel library: CPU +106, GPU +98, now: CPU 353, GPU 6931 (MiB)
+[TRT]    native precisions detected for GPU:  FP32, FP16, INT8
+[TRT]    selecting fastest native precision for GPU:  FP16
+[TRT]    found engine cache file /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.1.1.8502.GPU.FP16.engine
+[TRT]    found model checksum /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.sha256sum
+[TRT]    echo "$(cat /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.sha256sum) /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff" | sha256sum --check --status
+[TRT]    model matched checksum /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.sha256sum
+[TRT]    loading network plan from engine cache... /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff.1.1.8502.GPU.FP16.engine
+[0;32m[TRT]    device GPU, loaded /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff
+[0m[TRT]    Loaded engine size: 32 MiB
+[0;33m[TRT]    Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[0m[TRT]    Trying to load shared library libcublas.so.11
+[TRT]    Loaded shared library libcublas.so.11
+[TRT]    Using cublas as plugin tactic source
+[TRT]    Trying to load shared library libcublasLt.so.11
+[TRT]    Loaded shared library libcublasLt.so.11
+[TRT]    Using cublasLt as core library tactic source
+[TRT]    [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +261, GPU +164, now: CPU 555, GPU 7126 (MiB)
+[TRT]    Trying to load shared library libcudnn.so.8
+[TRT]    Loaded shared library libcudnn.so.8
+[TRT]    Using cuDNN as plugin tactic source
+[TRT]    Using cuDNN as core library tactic source
+[TRT]    [MemUsageChange] Init cuDNN: CPU +82, GPU +77, now: CPU 637, GPU 7203 (MiB)
+[TRT]    Deserialization required 1455604 microseconds.
+[TRT]    [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +32, now: CPU 0, GPU 32 (MiB)
+[TRT]    Trying to load shared library libcublas.so.11
+[TRT]    Loaded shared library libcublas.so.11
+[TRT]    Using cublas as plugin tactic source
+[TRT]    Trying to load shared library libcublasLt.so.11
+[TRT]    Loaded shared library libcublasLt.so.11
+[TRT]    Using cublasLt as core library tactic source
+[TRT]    [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 637, GPU 7203 (MiB)
+[TRT]    Trying to load shared library libcudnn.so.8
+[TRT]    Loaded shared library libcudnn.so.8
+[TRT]    Using cuDNN as plugin tactic source
+[TRT]    Using cuDNN as core library tactic source
+[TRT]    [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 637, GPU 7203 (MiB)
+[TRT]    Total per-runner device persistent memory is 142848
+[TRT]    Total per-runner host persistent memory is 155824
+[TRT]    Allocated activation device memory of size 6962688
+[TRT]    [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +7, now: CPU 0, GPU 39 (MiB)
+[TRT]    
+[TRT]    CUDA engine context initialized on device GPU:
+[TRT]       -- layers       107
+[TRT]       -- maxBatchSize 1
+[TRT]       -- deviceMemory 6962688
+[TRT]       -- bindings     3
+[TRT]       binding 0
+                -- index   0
+                -- name    'Input'
+                -- type    FP32
+                -- in/out  INPUT
+                -- # dims  3
+                -- dim #0  3
+                -- dim #1  300
+                -- dim #2  300
+[TRT]       binding 1
+                -- index   1
+                -- name    'NMS'
+                -- type    FP32
+                -- in/out  OUTPUT
+                -- # dims  3
+                -- dim #0  1
+                -- dim #1  100
+                -- dim #2  7
+[TRT]       binding 2
+                -- index   2
+                -- name    'NMS_1'
+                -- type    FP32
+                -- in/out  OUTPUT
+                -- # dims  3
+                -- dim #0  1
+                -- dim #1  1
+                -- dim #2  1
+[TRT]    
+[TRT]    binding to input 0 Input  binding index:  0
+[TRT]    binding to input 0 Input  dims (b=1 c=3 h=300 w=300) size=1080000
+[TRT]    binding to output 0 NMS  binding index:  1
+[TRT]    binding to output 0 NMS  dims (b=1 c=1 h=100 w=7) size=2800
+[TRT]    binding to output 1 NMS_1  binding index:  2
+[TRT]    binding to output 1 NMS_1  dims (b=1 c=1 h=1 w=1) size=4
+[TRT]    
+[0;32m[TRT]    device GPU, /usr/local/bin/networks/SSD-Mobilenet-v2/ssd_mobilenet_v2_coco.uff initialized.
+[0m[TRT]    W = 7  H = 100  C = 1
+[TRT]    detectNet -- maximum bounding boxes:   100
+[TRT]    loaded 91 class labels
+[TRT]    detectNet -- number of object classes:  91
+[TRT]    loaded 0 class colors
+[0;33m[TRT]    didn't load expected number of class colors  (0 of 91)
+[0m[0;33m[TRT]    filling in remaining 91 class colors with default colors
+[0m[gstreamer] initialized gstreamer, version 1.16.3.0
+[gstreamer] gstCamera -- attempting to create device v4l2:///dev/video0
+[gstreamer] gstCamera -- found v4l2 device: UVC Camera (046d:0821)
+[gstreamer] v4l2-proplist, device.path=(string)/dev/video0, udev-probed=(boolean)false, device.api=(string)v4l2, v4l2.device.driver=(string)uvcvideo, v4l2.device.card=(string)"UVC\ Camera\ \(046d:0821\)", v4l2.device.bus_info=(string)usb-3610000.xhci-1, v4l2.device.version=(uint)330344, v4l2.device.capabilities=(uint)2225078273, v4l2.device.device_caps=(uint)69206017;
+[gstreamer] gstCamera -- found 56 caps for v4l2 device /dev/video0
+[gstreamer] [0] video/x-raw, format=(string)YUY2, width=(int)2592, height=(int)1944, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)2/1;
+[gstreamer] [1] video/x-raw, format=(string)YUY2, width=(int)2048, height=(int)1536, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)2/1;
+[gstreamer] [2] video/x-raw, format=(string)YUY2, width=(int)1920, height=(int)1080, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)2/1;
+[gstreamer] [3] video/x-raw, format=(string)YUY2, width=(int)1600, height=(int)1200, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)2/1;
+[gstreamer] [4] video/x-raw, format=(string)YUY2, width=(int)1792, height=(int)1008, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)5/1;
+[gstreamer] [5] video/x-raw, format=(string)YUY2, width=(int)1712, height=(int)960, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)5/1;
+[gstreamer] [6] video/x-raw, format=(string)YUY2, width=(int)1600, height=(int)896, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)5/1;
+[gstreamer] [7] video/x-raw, format=(string)YUY2, width=(int)1504, height=(int)832, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)5/1;
+[gstreamer] [8] video/x-raw, format=(string)YUY2, width=(int)1280, height=(int)960, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction)5/1;
+[gstreamer] [9] video/x-raw, format=(string)YUY2, width=(int)1392, height=(int)768, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/2, 5/1 };
+[gstreamer] [10] video/x-raw, format=(string)YUY2, width=(int)1280, height=(int)720, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 10/1, 15/2, 5/1 };
+[gstreamer] [11] video/x-raw, format=(string)YUY2, width=(int)1184, height=(int)656, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 10/1, 15/2, 5/1 };
+[gstreamer] [12] video/x-raw, format=(string)YUY2, width=(int)960, height=(int)720, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [13] video/x-raw, format=(string)YUY2, width=(int)1024, height=(int)576, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 10/1, 15/2, 5/1 };
+[gstreamer] [14] video/x-raw, format=(string)YUY2, width=(int)960, height=(int)544, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [15] video/x-raw, format=(string)YUY2, width=(int)800, height=(int)600, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [16] video/x-raw, format=(string)YUY2, width=(int)864, height=(int)480, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [17] video/x-raw, format=(string)YUY2, width=(int)800, height=(int)448, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [18] video/x-raw, format=(string)YUY2, width=(int)752, height=(int)416, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [19] video/x-raw, format=(string)YUY2, width=(int)640, height=(int)480, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [20] video/x-raw, format=(string)YUY2, width=(int)640, height=(int)360, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [21] video/x-raw, format=(string)YUY2, width=(int)544, height=(int)288, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [22] video/x-raw, format=(string)YUY2, width=(int)432, height=(int)240, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [23] video/x-raw, format=(string)YUY2, width=(int)352, height=(int)288, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [24] video/x-raw, format=(string)YUY2, width=(int)320, height=(int)240, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [25] video/x-raw, format=(string)YUY2, width=(int)320, height=(int)176, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [26] video/x-raw, format=(string)YUY2, width=(int)176, height=(int)144, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [27] video/x-raw, format=(string)YUY2, width=(int)160, height=(int)120, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [28] image/jpeg, width=(int)2592, height=(int)1944, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 10/1, 15/2, 5/1 };
+[gstreamer] [29] image/jpeg, width=(int)2048, height=(int)1536, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [30] image/jpeg, width=(int)1920, height=(int)1080, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [31] image/jpeg, width=(int)1600, height=(int)1200, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [32] image/jpeg, width=(int)1792, height=(int)1008, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [33] image/jpeg, width=(int)1712, height=(int)960, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [34] image/jpeg, width=(int)1600, height=(int)896, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [35] image/jpeg, width=(int)1504, height=(int)832, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [36] image/jpeg, width=(int)1280, height=(int)960, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [37] image/jpeg, width=(int)1392, height=(int)768, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [38] image/jpeg, width=(int)1280, height=(int)720, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [39] image/jpeg, width=(int)1184, height=(int)656, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [40] image/jpeg, width=(int)960, height=(int)720, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [41] image/jpeg, width=(int)1024, height=(int)576, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [42] image/jpeg, width=(int)960, height=(int)544, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [43] image/jpeg, width=(int)800, height=(int)600, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [44] image/jpeg, width=(int)864, height=(int)480, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [45] image/jpeg, width=(int)800, height=(int)448, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [46] image/jpeg, width=(int)752, height=(int)416, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [47] image/jpeg, width=(int)640, height=(int)480, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 60/1, 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [48] image/jpeg, width=(int)640, height=(int)360, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 60/1, 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [49] image/jpeg, width=(int)544, height=(int)288, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [50] image/jpeg, width=(int)432, height=(int)240, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [51] image/jpeg, width=(int)352, height=(int)288, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [52] image/jpeg, width=(int)320, height=(int)240, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 60/1, 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [53] image/jpeg, width=(int)320, height=(int)176, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [54] image/jpeg, width=(int)176, height=(int)144, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] [55] image/jpeg, width=(int)160, height=(int)120, pixel-aspect-ratio=(fraction)1/1, framerate=(fraction){ 30/1, 24/1, 20/1, 15/1, 10/1, 15/2, 5/1 };
+[gstreamer] gstCamera -- selected device profile:  codec=MJPEG format=unknown width=2592 height=1944
+[gstreamer] gstCamera pipeline string:
+[gstreamer] v4l2src device=/dev/video0 do-timestamp=true ! image/jpeg, width=(int)2592, height=(int)1944 ! jpegdec name=decoder ! video/x-raw ! appsink name=mysink sync=false
+[gstreamer] gstCamera successfully created device v4l2:///dev/video0
+[OpenGL] glDisplay -- X screen 0 resolution:  2560x1440
+[OpenGL] glDisplay -- X window resolution:    2560x1440
+[OpenGL] glDisplay -- display device initialized (2560x1440)
+[gstreamer] opening gstCamera for streaming, transitioning pipeline to GST_STATE_PLAYING
+[gstreamer] gstreamer changed state from NULL to READY ==> mysink
+[gstreamer] gstreamer changed state from NULL to READY ==> capsfilter1
+[gstreamer] gstreamer changed state from NULL to READY ==> decoder
+[gstreamer] gstreamer changed state from NULL to READY ==> capsfilter0
+[gstreamer] gstreamer changed state from NULL to READY ==> v4l2src0
+[gstreamer] gstreamer changed state from NULL to READY ==> pipeline0
+[gstreamer] gstreamer changed state from READY to PAUSED ==> capsfilter1
+[gstreamer] gstreamer changed state from READY to PAUSED ==> decoder
+[gstreamer] gstreamer changed state from READY to PAUSED ==> capsfilter0
+[gstreamer] gstreamer stream status CREATE ==> src
+[gstreamer] gstreamer changed state from READY to PAUSED ==> v4l2src0
+[gstreamer] gstreamer changed state from READY to PAUSED ==> pipeline0
+[gstreamer] gstreamer message new-clock ==> pipeline0
+[gstreamer] gstreamer stream status ENTER ==> src
+[gstreamer] gstreamer changed state from PAUSED to PLAYING ==> capsfilter1
+[gstreamer] gstreamer changed state from PAUSED to PLAYING ==> decoder
+[gstreamer] gstreamer message stream-start ==> pipeline0
+[gstreamer] gstreamer changed state from PAUSED to PLAYING ==> capsfilter0
+[gstreamer] gstreamer changed state from PAUSED to PLAYING ==> v4l2src0
+[gstreamer] gstCamera -- onPreroll
+[0;33m[gstreamer] gstBufferManager -- map buffer size was less than max sizeperson detected
+ (7558272 vs 7558279)
+[0m[gstreamer] gstBufferManager recieve caps:  video/x-raw, format=(string)I420, width=(int)2592, height=(int)1944, interlace-mode=(string)progressive, multiview-mode=(string)mono, multiview-flags=(GstVideoMultiviewFlagsSet)0:ffffffff:/right-view-first/left-flipped/left-flopped/right-flipped/right-flopped/half-aspect/mixed-mono, pixel-aspect-ratio=(fraction)1/1, chroma-site=(string)mpeg2, colorimetry=(string)1:4:0:0, framerate=(fraction)10/1
+[gstreamer] gstBufferManager -- recieved first frame, codec=MJPEG format=i420 width=2592 height=1944 size=7558279
+[cuda]   allocated 4 ring buffers (7558279 bytes each, 30233116 bytes total)
+[cuda]   allocated 4 ring buffers (8 bytes each, 32 bytes total)
+[gstreamer] gstreamer changed state from READY to PAUSED ==> mysink
+[gstreamer] gstreamer message async-done ==> pipeline0
+[gstreamer] gstreamer changed state from PAUSED to PLAYING ==> mysink
+[gstreamer] gstreamer changed state from PAUSED to PLAYING ==> pipeline0
+[cuda]   allocated 4 ring buffers (80621568 bytes each, 322486272 bytes total)
+[OpenGL] creating 2592x1944 texture (GL_RGBA32F format, 80621568 bytes)
+[cuda]   registered openGL texture for interop access (2592x1944, GL_RGBA32F, 80621568 bytes)
+[image]  saved 'media/detection.jpg'  (2592x1944, 4 channels)
+[gstreamer] gstCamera -- stopping pipeline, transitioning to GST_STATE_NULL
+[gstreamer] gstCamera -- pipeline stopped

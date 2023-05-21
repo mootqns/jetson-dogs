@@ -4,44 +4,46 @@ import jetson_inference
 import jetson_utils
 import send_mms
 
-net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.85)
-camera = jetson_utils.gstCamera(2592, 1944, "/dev/video0")
-display = jetson_utils.glDisplay()
+def start_detection():
+    net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.85)
+    camera = jetson_utils.gstCamera(2592, 1944, "/dev/video0")
+    display = jetson_utils.glDisplay()
 
-person_detected = False  # flag to track detection status
+    person_detected = False  # flag to track detection status
 
-# specify the custom file path
-file_path = "media"
+    # specify the custom file path
+    file_path = "media"
 
-while display.IsOpen():
-    img, width, height = camera.CaptureRGBA()
+    while display.IsOpen():
+        img, width, height = camera.CaptureRGBA()
 
-    detections = net.Detect(img, width, height)
+        detections = net.Detect(img, width, height)
 
-    # check if any person detection is present
-    person_present = any(net.GetClassDesc(d.ClassID) == "laptop" for d in detections)
+        # check if any person detection is present
+        person_present = any(net.GetClassDesc(d.ClassID) == "laptop" for d in detections)
 
-    if person_present and not person_detected:
-        print('person detected')
-        person_detected = True
+        if person_present and not person_detected:
+            print('person detected')
+            person_detected = True
 
-        # generate a unique image filename
-        image_name = "detection.jpg"
-        image_path = os.path.join(file_path, image_name)
+            # generate a unique image filename
+            image_name = "detection.jpg"
+            image_path = os.path.join(file_path, image_name)
 
-        # save the image when person is detected
-        jetson_utils.saveImageRGBA(image_path, img)
+            # save the image when person is detected
+            jetson_utils.saveImageRGBA(image_path, img)
 
-        # mms image
-        send_mms.send_image_mms()
+            # mms image
+            send_mms.send_image_mms()
 
-        # exit
-        sys.exit()
+            # exit
+            sys.exit()
 
-    elif not person_present and person_detected:
-        print('person undetected')
-        person_detected = False
+        elif not person_present and person_detected:
+            print('person undetected')
+            person_detected = False
 
-    display.RenderOnce(img, width, height)
-    display.SetTitle("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
+        display.RenderOnce(img, width, height)
+        display.SetTitle("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
 
+start_detection()
