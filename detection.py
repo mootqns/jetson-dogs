@@ -19,7 +19,7 @@ while display.IsOpen():
     detections = net.Detect(img, width, height)
 
     # check if any person detection is present
-    person_present = any(net.GetClassDesc(d.ClassID) == "person" for d in detections)
+    person_present = any(net.GetClassDesc(d.ClassID) == "laptop" for d in detections)
 
     if person_present and not person_detected:
         print('person detected')
