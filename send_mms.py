@@ -10,7 +10,6 @@ def get_ngrok_url():
     
     return forwarding_url
 
-
 def create_twilio_client():
     account_sid = os.environ['TWILIO_ACCOUNT_SID']
     auth_token = os.environ['TWILIO_AUTH_TOKEN']
@@ -21,9 +20,9 @@ def send_image_mms():
     image_url = str(get_ngrok_url()) + '/media/detection.jpg'
 
     message = client.messages.create(
-        from_='+18336934531',
-        media_url=[image_url],
-        to='+15034737870'
+        from_ = os.environ['TWILIO_PHONE_NUM'],
+        media_url =[ image_url],
+        to = os.environ['PERSONAL_NUM']
     )
 
     # print(message.sid)
