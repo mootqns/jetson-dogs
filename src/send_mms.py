@@ -25,4 +25,3 @@ def send_image_mms():
         to = os.environ['PERSONAL_NUM']
     )
 
-    # print(message.sid)
