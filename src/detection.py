@@ -9,7 +9,7 @@ def start_detection():
     camera = jetson_utils.gstCamera(2592, 1944, "/dev/video0")
     display = jetson_utils.glDisplay()
 
-    person_detected = False  # flag to track detection status
+    obj_detected = False  # flag to track detection status
 
     # specify the custom file path
     file_path = "media"
@@ -20,11 +20,11 @@ def start_detection():
         detections = net.Detect(img, width, height)
 
         # check if any person detection is present
-        person_present = any(net.GetClassDesc(d.ClassID) == "laptop" for d in detections)
+        obj_present = any(net.GetClassDesc(d.ClassID) == "dog" for d in detections)
 
-        if person_present and not person_detected:
+        if obj_present and not obj_detected:
             print('person detected')
-            person_detected = True
+            obj_detected = True
 
             # generate a unique image filename
             image_name = "detection.jpg"
@@ -39,9 +39,9 @@ def start_detection():
             # exit
             sys.exit()
 
-        elif not person_present and person_detected:
+        elif not obj_present and obj_detected:
             print('person undetected')
-            person_detected = False
+            obj_detected = False
 
         display.RenderOnce(img, width, height)
         display.SetTitle("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
